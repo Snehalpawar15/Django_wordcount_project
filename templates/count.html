@@ -1,16 +1,49 @@
-<h1>There are {{count}} words in your text</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 
-<a href="{% url 'home' %}">Start Again</a>
-<h1>Your Text:</h1>
-{{fulltext}}
+    <link rel="stylesheet" 
+href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+crossorigin="anonymous">
+<style>
+
+body{
+		background-color: #6BA3E8;
+	}
+	.center-column{
+		width:800px;
+		margin: 20px auto;
+		padding:20px;
+		background-color: #fff;
+		border-radius: 3px;
+		box-shadow: 6px 2px 30px 0px rgba(0,0,0,0.75);
+</style>
+</head>
+<body>
+    <div class="center-column">
+	<div class="container">
+    <h1>There are {{count}} words in your text</h1>
+    <h1>Your Text:</h1>
+    {{fulltext}}
+    <h1>Word Count:</h1>
+    {% for word,counttotal in worddictionary %}
+    {{word}} - {{counttotal}}
+    <br/>
+    
+    {% endfor %}
+    <a class="btn btn-info" href="{% url 'home' %}">Start Again</a>
+    </div>
+    </div>
 
 
 
-<h1>Word Count:<h1>
+</body>
+</html>
 
-{% for word,counttotal in worddictionary %}
-{{word}} - {{counttotal}}
-<br/>
 
-{% endfor %}
+
 
